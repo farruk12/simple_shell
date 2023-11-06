@@ -151,9 +151,9 @@ int puts_filed(char *str, int fd);
 /*--------Funtion Prototypes for errors1.c--------*/
 int _erroratoi(char *);
 void print_error(info_t *, char *);
-int print_d(int, int);
-char *convert_number(long int, int, int);
-void remove_comments(char *);
+int print_decimal(int, int);
+char *convert_num(long int, int, int);
+void rm_comments(char *);
 
 /*--------Funtion Prototypes for exits.c--------*/
 char *_strncpy(char *, char *, int);
