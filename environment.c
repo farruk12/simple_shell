@@ -17,7 +17,7 @@ return (0);
  * @name: Env var name.
  * Return: The value of the environment variable, or NULL if not found.
  */
-char *_getenv(info_t *info, const char *name)
+char *_getenvs(info_t *info, const char *name)
 {
 list_t *n  = info->env;
 char *t;
@@ -35,7 +35,7 @@ return (NULL);
  * @info: Structure containing potential arguments.
  * Return: Always 0.
  */
-int _mysetenv(info_t *info)
+int mys_setenv(info_t *info)
 {
 if (info->argc != 3)
 {
@@ -52,7 +52,7 @@ return (1);
  * Description: This function removes one or more environment variables.
  * Return: Always 0.
  */
-int my_unsetenv(info_t *info)
+int mys_unsetenv(info_t *info)
 {
 int j;
 if (info->argc == 1)
@@ -73,7 +73,7 @@ return (0);
  * Return: Always 0.
  */
 
-int display_env(info_t *info)
+int displays_env(info_t *info)
 {
 list_t *n = NULL;
 size_t i;
