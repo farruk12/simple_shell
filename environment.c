@@ -12,12 +12,12 @@ return (0);
 }
 
 /**
- * _getenv - Gets the value of an environment variable.
+ * _getenvs - Gets the value of an environment variable.
  * @info: Structure containing potential arguments.
  * @name: Env var name.
  * Return: The value of the environment variable, or NULL if not found.
  */
-char *_getenv(info_t *info, const char *name)
+char *_getenvs(info_t *info, const char *name)
 {
 list_t *n  = info->env;
 char *t;
@@ -31,11 +31,11 @@ n  = node->next;
 return (NULL);
 }
 /**
- * _mysetenv - Initialize a new environment variable or modify existing one
+ * mys_setenv - Initialize a new environment variable or modify existing one
  * @info: Structure containing potential arguments.
  * Return: Always 0.
  */
-int _mysetenv(info_t *info)
+int mys_setenv(info_t *info)
 {
 if (info->argc != 3)
 {
@@ -47,12 +47,12 @@ return (0);
 return (1);
 }
 /**
- * my_unsetenv - Remove an environment variable.
+ * mys_unsetenv - Remove an environment variable.
  * @info: Structure containing potential arguments.
  * Description: This function removes one or more environment variables.
  * Return: Always 0.
  */
-int my_unsetenv(info_t *info)
+int mys_unsetenv(info_t *info)
 {
 int j;
 if (info->argc == 1)
@@ -68,12 +68,12 @@ return (0);
 }
 
 /**
- * display_env - Populates an environment linked list
+ * displays_env - Populates an environment linked list
  * @info: Structure containing potential arguments.
  * Return: Always 0.
  */
 
-int display_env(info_t *info)
+int displays_env(info_t *info)
 {
 list_t *n = NULL;
 size_t i;
