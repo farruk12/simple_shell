@@ -176,11 +176,11 @@ int _getline(info_t *, char **, size_t *);
 void sigint_handler(int);
 
 /*--------Funtion Prototypes for history.c--------*/
-char *get_history_file(info_t *info);
-int write_history(info_t *info);
-int read_history(info_t *info);
+char *_history_file(info_t *info);
+int write_histo(info_t *info);
+int read_histo(info_t *info);
 int build_history_list(info_t *info, char *buf, int linecount);
-int renumber_history(info_t *info);
+int renumber_histo(info_t *info);
 
 /*--------Funtion Prototypes for lists.c--------*/
 list_t *add_node(list_t **, const char *, int);
