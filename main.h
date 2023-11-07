@@ -161,9 +161,9 @@ char *_strncat(char *, char *, int);
 char *_strchr(char *, char);
 
 /*--------Funtion Prototypes for getenv.c--------*/
-char **get_environ(info_t *);
-int _unsetenv(info_t *, char *);
-int _setenv(info_t *, char *, char *);
+char **get_environment(info_t *);
+int _unsetenviroment(info_t *, char *);
+int _setenviroment(info_t *, char *, char *);
 
 /*--------Funtion Prototypes for getinfo.c--------*/
 void clear_info(info_t *);
