@@ -7,8 +7,8 @@
  */
 int my_environment(info_t *info)
 {
-print_list_str(info->env);
-return (0);
+	print_list_str(info->env);
+	return (0);
 }
 
 /**
@@ -19,16 +19,18 @@ return (0);
  */
 char *_getenvs(info_t *info, const char *name)
 {
-list_t *n  = info->env;
-char *t;
-while (n)
-{
-t  = starts_with(node->str, name);
-if (t && *t)
-return (t);
-n  = node->next;
-}
-return (NULL);
+	list_t *n  = info->env;
+	char *t;
+
+	while (n)
+	{
+		t  = starts_with(node->str, name);
+		if (t && *t)
+			return (t);
+
+		n  = node->next;
+	}
+	return (NULL);
 }
 /**
  * mys_setenv - Initialize a new environment variable or modify existing one
@@ -37,14 +39,15 @@ return (NULL);
  */
 int mys_setenv(info_t *info)
 {
-if (info->argc != 3)
-{
-_inputs("Wrong argument amount\n");
-return (1);
-}
-if (_setenv(info, info->argv[1], info->argv[2]))
-return (0);
-return (1);
+	if (info->argc != 3)
+	{
+		_inputs("Wrong argument amount\n");
+		return (1);
+	}
+	if (_setenv(info, info->argv[1], info->argv[2]))
+		return (0);
+
+	return (1);
 }
 /**
  * mys_unsetenv - Remove an environment variable.
@@ -54,17 +57,18 @@ return (1);
  */
 int mys_unsetenv(info_t *info)
 {
-int j;
-if (info->argc == 1)
-if (info->argc == 1)
-{
-_inputs("Few arguments.\n");
-return (1);
-}
-for (j = 1; j <= info->argc; j++)
-{
-_unsetenv(info, info->argv[j]);
-return (0);
+	int j;
+
+	if (info->argc == 1)
+	{
+		_inputs("Few arguments.\n");
+		return (1);
+	}
+	for (j = 1; j <= info->argc; j++)
+	{
+		_unsetenv(info, info->argv[j]);
+
+	return (0);
 }
 
 /**
@@ -75,11 +79,14 @@ return (0);
 
 int displays_env(info_t *info)
 {
-list_t *n = NULL;
-size_t i;
-for (i = 0; environ[i]; i++)
-{
-add_node_end(&n, environ[i], 0);
-info->env = n;
-return (0);
+	list_t *n = NULL;
+	size_t i;
+
+	for (i = 0; environ[i]; i++)
+	{
+		add_node_end(&n, environ[i], 0);
+	}
+	info->env = n;
+
+	return (0);
 }
