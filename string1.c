@@ -31,11 +31,11 @@ char *_strdup(const char *s)
  * @needle: the substring to find
  * Return: address of next char
  */
-char *starts_with(const char *hay, const char *needle)
+char *starts_with(const char *hay, const char *need)
 {
-	while (*needle)
+	while (*need)
 	{
-		if (*needle++ != *hay++)
+		if (*need++ != *hay++)
 			return (NULL);
 	}
 	return ((char *)hay);

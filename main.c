@@ -31,7 +31,7 @@ int main(int ac, char **av)
 				my_inputs(av[1]);
 				my_inputchar('\n');
 				my_inputchar(FLUSH);
-				exit(127); /*Command not found*/
+				exit(127);
 			}
 			return (EXIT_FAILURE);
 		}

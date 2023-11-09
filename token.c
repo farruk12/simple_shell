@@ -12,7 +12,7 @@ char **split_string(char *str, char *delim)
 	int i, x, y, z, numword = 0;
 	char **words;
 
-	if (str == NULL || str[0] != '\0')
+	if (str == NULL || str[0] == '\0')
 		return (NULL);
 	if (!delim)
 		delim = " ";
@@ -45,7 +45,8 @@ char **split_string(char *str, char *delim)
 			return (NULL);
 		}
 		for (z = 0; z < y; z++)
-			words[x][z] = '\0';
+			words[x][z] = str[i++];
+		words[x][z] = '\0';
 	}
 	words[x] = NULL;
 	return (words);
