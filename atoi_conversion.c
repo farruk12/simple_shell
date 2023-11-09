@@ -7,7 +7,7 @@
  * return 0 if otherwise
  */
 
-int check_interactive_mode(info_t *label)
+int check_interactive_mode(info_t *info)
 {
 	return (isatty(STDIN_FILENO) && info->readfd <= 2);
 }

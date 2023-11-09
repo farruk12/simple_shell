@@ -31,7 +31,7 @@ int is_cmd(info_t *info, char *p)
  */
 char *aduplicate_chars(char *pathstr, int start, int stop)
 {
-	static char buffer[1024];
+	static char buf[1024];
 	int i = 0, k = 0;
 
 	for (k = 0, i = start; i < stop; i++)
@@ -40,6 +40,7 @@ char *aduplicate_chars(char *pathstr, int start, int stop)
 			buf[k++] = pathstr[i];
 	}
 	buf[k] = 0;
+
 	return (buf);
 }
 /**

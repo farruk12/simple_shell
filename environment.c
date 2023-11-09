@@ -5,7 +5,7 @@
  * @info: Structure containing potential arguments.
  * Return: Always 0.
  */
-int my_environment(info_t *info)
+int my_enviroment(info_t *info)
 {
 	print_list_str(info->env);
 	return (0);
@@ -19,16 +19,16 @@ int my_environment(info_t *info)
  */
 char *_getenvs(info_t *info, const char *name)
 {
-	list_t *n  = info->env;
+	list_t *node  = info->env;
 	char *t;
 
-	while (n)
+	while (node)
 	{
 		t  = starts_with(node->str, name);
 		if (t && *t)
 			return (t);
 
-		n  = node->next;
+		node = node->next;
 	}
 	return (NULL);
 }
@@ -41,10 +41,10 @@ int mys_setenv(info_t *info)
 {
 	if (info->argc != 3)
 	{
-		_inputs("Wrong argument amount\n");
+		my_inputs("Wrong argument amount\n");
 		return (1);
 	}
-	if (_setenv(info, info->argv[1], info->argv[2]))
+	if (_setenviroment(info, info->argv[1], info->argv[2]))
 		return (0);
 
 	return (1);
@@ -61,12 +61,13 @@ int mys_unsetenv(info_t *info)
 
 	if (info->argc == 1)
 	{
-		_inputs("Few arguments.\n");
+		my_inputs("Few arguments.\n");
 		return (1);
 	}
 	for (j = 1; j <= info->argc; j++)
 	{
-		_unsetenv(info, info->argv[j]);
+		_unsetenviroment(info, info->argv[j]);
+	}
 
 	return (0);
 }
@@ -77,7 +78,7 @@ int mys_unsetenv(info_t *info)
  * Return: Always 0.
  */
 
-int displays_env(info_t *info)
+int displays_env_list(info_t *info)
 {
 	list_t *n = NULL;
 	size_t i;

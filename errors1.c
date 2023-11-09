@@ -18,7 +18,7 @@ int _erroratoi(char *s)
 		if (s[i] >= '0' && s[i] <= '9')
 		{
 			result *= 10;
-			result += s([i] - '0');
+			result += (s[i] - '0');
 
 			if (result > INT_MAX)
 				return (-1);
@@ -38,7 +38,7 @@ void print_error(info_t *info, char *estr)
 {
 	my_inputs(info->fname);
 	my_inputs(": ");
-	print_d(info->line_count, STDERR_FILENO);
+	print_decimal(info->line_count, STDERR_FILENO);
 	my_inputs(": ");
 	my_inputs(": ");
 	my_inputs(info->argv[0]);
@@ -58,7 +58,7 @@ int print_decimal(int input, int fd)
 	unsigned int _abs_, current;
 
 	if (fd == STDERR_FILENO)
-		__putchar = _inputchar;
+		__putchar = my_inputchar;
 
 	if (input < 0)
 	{

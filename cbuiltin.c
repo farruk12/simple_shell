@@ -14,9 +14,9 @@ int exits_func(info_t *info)
 		if (exits == -1)
 		{
 			info->status = 2;
-			printf_error(info, "invalid number: ");
-			_inputs(info->argv[1]);
-			_inputchar('\n');
+			print_error(info, "invalid number: ");
+			my_inputs(info->argv[1]);
+			my_inputchar('\n');
 			return (1);
 		}
 		info->err_num = _erroratoi(info->argv[1]);
@@ -40,36 +40,36 @@ int cd_func(info_t *info)
 		_puts("failed\n");
 	if (!info->argv[1])
 	{
-		dir = _getenv(info, "HOME=");
+		dir = _getenvs(info, "HOME=");
 		if (!dir)
-			chdir_func = chdir((dir = _getenv(info, "PWD=")) ? dir : "/");
+			chdir_func = chdir((dir = _getenvs(info, "PWD=")) ? dir : "/");
 		else
 			chdir_func = chdir(dir);
 	}
-	else if (_strcmp(info->argv[1], "-") == 0)
+	else if (my_strcmp(info->argv[1], "-") == 0)
 	{
-		if (!_getenv(info, "OLDPWD="))
+		if (!_getenvs(info, "OLDPWD="))
 		{
-			_puts(s);
+			_puts(t);
 			_putchar('\n');
 			return (1);
 		}
-		_puts(_getenv(info, "OLDPWD="));
+		_puts(_getenvs(info, "OLDPWD="));
 		_putchar('\n');
-		chdir_func = chdir((dir = _getenv(info, "OLDPWD=")) ? dir : "/");
+		chdir_func = chdir((dir = _getenvs(info, "OLDPWD=")) ? dir : "/");
 	}
 	else
 		chdir_func = chdir(info->argv[1]);
 	if (chdir_func == -1)
 	{
 		print_error(info, "failed to cd ");
-		_inputs(info->argv[1]);
-		_inputchar('\n');
+		my_inputs(info->argv[1]);
+		my_inputchar('\n');
 	}
 	else
 	{
-		_setenv(info, "OLDPWD", _getenv(info, "PWD="));
-		_setenv(info, "PWD", getcwd(buffer, 1024));
+		_setenviroment(info, "OLDPWD", _getenvs(info, "PWD="));
+		_setenviroment(info, "PWD", getcwd(buffer, 1024));
 	}
 	return (0);
 }

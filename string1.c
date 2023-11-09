@@ -31,7 +31,7 @@ char *_strdup(const char *s)
  * @needle: the substring to find
  * Return: address of next char
  */
-char *start_with(const char *hay, const char *needle)
+char *starts_with(const char *hay, const char *needle)
 {
 	while (*needle)
 	{
@@ -49,7 +49,7 @@ void _puts(char *s)
 {
 	int i = 0;
 
-	if (!str)
+	if (!s)
 		return;
 
 	while (s[i] != '\0')

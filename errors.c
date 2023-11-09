@@ -76,7 +76,7 @@ int puts_filed(char *str, int fd)
 
 	while (*str)
 	{
-		i += _putfd(*str++, fd);
+		i += _putfiled(*str++, fd);
 	}
 	return (i);
 }

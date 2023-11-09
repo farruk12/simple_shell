@@ -47,7 +47,7 @@ typedef struct list
 {
         int num;
         char *str;
-        struct liststr *next;
+        struct list *next;
 } list_t;
 
 /**
@@ -95,14 +95,12 @@ typedef struct name
         int histcount;
 } info_t;
 
-#define INFO_INIT
-     \
-        {
-         \
-                NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
-                        0, 0, 0
-                 \
-        }
+#define INFO_INIT                                                               \
+	{                                                                           \
+		NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+			0, 0, 0                                                             \
+	}
+
 /**
  *struct builtin - Custom data structure for built-in commands
  *                                      and their associated functions.
@@ -130,8 +128,10 @@ int _help(info_t *);
 
 /*--------Funtion Prototypes for builtin1.c--------*/
 int _history(info_t *);
-int _alias(info_t *);
-
+int unset_alias(info_t *info, char *str);
+int set_alias(info_t *info, char *str);
+int print_alias(list_t *node);
+int my_alias(info_t *info);
 /* loophsh.c */
 int loophsh(char **);
 
@@ -174,6 +174,8 @@ void free_information(info_t *, int);
 ssize_t get_input(info_t *);
 int _getline(info_t *, char **, size_t *);
 void sigint_handler(int);
+ssize_t read_buf(info_t *info, char *buf, size_t *i);
+ssize_t input_buf(info_t *info, char **buf, size_t *len);
 
 /*--------Funtion Prototypes for history.c--------*/
 char *_history_file(info_t *info);
@@ -210,7 +212,7 @@ void ffree(char **);
 void *_realloc(void *, unsigned int, unsigned int);
 
 /*--------Funtion Prototypes for shell_loop.c--------*/
-int hsh(info_t *, char **);
+int vhsh(info_t *, char **);
 int find_builtin(info_t *);
 void find_command(info_t *);
 void fork_command(info_t *);
@@ -236,6 +238,6 @@ int is_chain(info_t *, char *, size_t *);
 void check_chain(info_t *, char *, size_t *, size_t, size_t);
 int replace_alias(info_t *);
 int replace_vars(info_t *);
-int replace_string(char **, char *);
+int replace_string(char **, char *);
 
 #endif

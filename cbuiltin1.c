@@ -15,7 +15,7 @@ int _history(info_t *info)
  * @str: The string rep the alias to unste
  * Return: Always 0 on success
  */
-int _alias(info_t *info, char *str)
+int unset_alias(info_t *info, char *str)
 {
 	char *p, c;
 	int r;

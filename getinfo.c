@@ -24,7 +24,7 @@ void set_information(info_t *info, char **av)
 	info->fname = av[0];
 	if (info->arg)
 	{
-		info->argv = split_string(info->argv, " \t");
+		info->argv = split_string(info->arg, " \t");
 
 		if (!info->argv)
 		{
@@ -70,7 +70,7 @@ void free_information(info_t *info, int all)
 
 		ffree(info->environ);
 		info->environ = NULL;
-		bfree((void **)info->cmd_buf);
+		freed((void **)info->cmd_buf);
 		if (info->readfd > 2)
 		{
 			close(info->readfd);

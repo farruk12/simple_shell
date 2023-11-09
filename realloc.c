@@ -22,14 +22,14 @@ char *_memset(char *buffer, char value, unsigned int num)
  * @pps: pointer to string of strings
  * Return: void
  */
-void ffree(char *pps)
+void ffree(char **pp)
 {
-	char **a = pps;
+	char **a = pp;
 
-	if (!pps)
+	if (!pp)
 		return;
-	while (*pps)
-		free(*pps++);
+	while (*pp)
+		free(*pp++);
 
 	free(a);
 }
