@@ -166,9 +166,9 @@ int _unsetenviroment(info_t *, char *);
 int _setenviroment(info_t *, char *, char *);
 
 /*--------Funtion Prototypes for getinfo.c--------*/
-void clear_info(info_t *);
-void set_info(info_t *, char **);
-void free_info(info_t *, int);
+void clear_information(info_t *);
+void set_information(info_t *, char **);
+void free_information(info_t *, int);
 
 /*--------Funtion Prototypes for getline.c--------*/
 ssize_t get_input(info_t *);
