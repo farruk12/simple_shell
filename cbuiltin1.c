@@ -61,17 +61,17 @@ int n_set_alias(memb_t *memb, char *str)
  */
 int n_unset_alias(memb_t *memb, char *str)
 {
-	char *p, c;
+	char *t, c;
 	int ret;
 
-	p = n_strchr(str, '=');
-	if (!p)
+	t = n_strchr(str, '=');
+	if (!t)
 		return (1);
-	c = *p;
-	*p = 0;
+	c = *t;
+	*t = 0;
 	ret = n_delete_node_at_index(&(memb->alias),
 		n_get_node_index(memb->alias, n_node_starts_with(memb->alias, str, -1)));
-	*p = c;
+	*t = c;
 	return (ret);
 }
 

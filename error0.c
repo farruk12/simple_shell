@@ -7,15 +7,15 @@
  */
 void n_eputs(char *str)
 {
-	int i = 0;
+	int j = 0;
 
 	if (!str)
 		return;
 
-	while (str[i] != '\0')
+	while (str[j] != '\0')
 	{
-		n_putchar(str[i]);
-		i++;
+		n_putchar(str[j]);
+		j++;
 	}
 }
 
