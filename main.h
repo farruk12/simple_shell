@@ -38,20 +38,20 @@
 extern char **environ;
 
 /**
- * Custom data structure for a singly linked list.
+ * struct list - Custom data structure for a singly linked list.
  * @num: Number field.
  * @str: String field.
  * @next: Points to the next node in the list.
  */
 typedef struct list
 {
-        int num;
-        char *str;
-        struct list *next;
+	int num;
+	char *str;
+	struct list *next;
 } list_t;
 
 /**
- * struct passinfo - Custom data structure for holding pseudo-arguments
+ * struct name - Custom data structure for holding pseudo-arguments
  * to be passed into a function.
  * @arg: String generated from getline containing arguments.
  * @argv: Array of strings generated from the argument string.
@@ -74,33 +74,29 @@ typedef struct list
  */
 typedef struct name
 {
-        char *arg;
-        char **argv;
-        char *path;
-        int argc;
-        unsigned int line_count;
-        int err_num;
-        int linecount_flag;
-        char *fname;
-        list_t *env;
-        list_t *history;
-        list_t *alias;
-        char **environ;
-        int env_changed;
-        int status;
-
-        char **cmd_buf;
-        int cmd_buf_type;
-        int readfd;
-        int histcount;
+	char *arg;
+	char **argv;
+	char *path;
+	int argc;
+	unsigned int line_count;
+	int err_num;
+	int linecount_flag;
+	char *fname;
+	list_t *env;
+	list_t *history;
+	list_t *alias;
+	char **environ;
+	int env_changed;
+	int status;
+	char **cmd_buf;
+	int cmd_buf_type;
+	int readfd;
+	int histcount;
 } info_t;
 
-#define INFO_INIT                                                               \
-	{                                                                           \
-		NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
-			0, 0, 0                                                             \
-	}
-
+#define INFO_INNIT\
+{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+	0, 0, 0}
 /**
  *struct builtin - Custom data structure for built-in commands
  *                                      and their associated functions.
@@ -109,8 +105,8 @@ typedef struct name
  */
 typedef struct builtin
 {
-        char *type;
-        int (*func)(info_t *);
+	char *type;
+	int (*func)(info_t *);
 } builtin_table;
 
 /*--------Function Prototypes--------*/
