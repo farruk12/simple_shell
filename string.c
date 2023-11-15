@@ -57,24 +57,17 @@ int my_strcmp(char *s1, char *s2)
 		return (*s1 < *s2 ? -1 : 1);
 }
 /**
- * _strcpy - copies a string from source to destiantion
- * @d: The destiantion buffer
- * @s: The source buffer
- * Return: pointer to destination buffer
+ * starts_with - checks if the substring neddle
+ * @hay: the string to search
+ * @need: the substring to find
+ * Return: address of next char
  */
-char *_strcpy(char *d, char *s)
+char *starts_with(const char *hay, const char *need)
 {
-	int i = 0;
-
-	if (d == s || s == 0)
-		return (d);
-
-	while (s[i])
+	while (*need)
 	{
-		d[i] = s[i];
-		i++;
+		if (*need++ != *hay++)
+		return (NULL);
 	}
-	d[i] = '\0';
-
-	return (d);
+	return ((char *)hay);
 }

@@ -52,28 +52,39 @@ int check_alpha(int c)
  */
 int our_atoi(char *str)
 {
-	int i, sign = 1, F = 0, value;
-	unsigned int result = 0;
+	int x, d, n, len, f, digit;
 
-	for (i = 0; str[i] != '\0' && F != 2; i++)
+	x = 0;
+	d = 0;
+	n = 0;
+	len = 0;
+	f = 0;
+	digit = 0;
+
+	while (str[len] != '\0')
+		len++;
+
+	while (x < len && f == 0)
 	{
-		if (str[i] == '-')
-			sign *= -1;
+		if (str[x] == '-')
+			++d;
 
-		if (str[i] >= '0' && str[i] <= '9')
+		if (str[x] >= '0' && str[x] <= '9')
 		{
-			F = 1;
-			result *= 10;
-			result += (str[i] - '0');
+			digit = str[x] - '0';
+			if (d % 2)
+				digit = -digit;
+			n = n * 10 + digit;
+			f = 1;
+			if (str[x + 1] < '0' || str[x + 1] > '9')
+				break;
+			f = 0;
 		}
-		else if (F == 1)
-			F = 2;
+		x++;
 	}
 
-	if (sign == -1)
-		value = -result;
-	else
-		value = result;
+	if (f == 0)
+		return (0);
 
-	return (value);
+	return (n);
 }

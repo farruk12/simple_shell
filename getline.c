@@ -157,6 +157,6 @@ int _getline(info_t *info, char **ptr, size_t *length)
 void sigint_handler(__attribute__((unused)) int sig_num)
 {
 	_puts("\n");
-	_puts("$ ");
+	_puts("#cisfun$ ");
 	_putchar(FLUSH);
 }

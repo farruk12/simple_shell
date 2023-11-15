@@ -8,7 +8,7 @@
 int _erroratoi(char *s)
 {
 	int i = 0;
-	unsigned long int result;
+	unsigned long int result = 0;
 
 	if (*s == '+')
 		s++;

@@ -25,26 +25,6 @@ char *_strdup(const char *s)
 
 	return (ret);
 }
-/**
- * starts_with - checks if the substring neddle
- * @hay: the string to search
- * @need: the substring to find
- * Return: address of next char
- */
-char *starts_with(const char *hay, const char *need)
-{
-	while (*need)
-	{
-		if (*need++ != *hay++)
-			return (NULL);
-	}
-	return ((char *)hay);
-}
-/**
- * _puts - prints an input string to stdout
- * @s: The string to be printed
- * Return: nothing
- */
 void _puts(char *s)
 {
 	int i = 0;
@@ -77,4 +57,26 @@ int _putchar(char c)
 		buffer[i++] = c;
 
 	return (1);
+}
+/**
+ * _strcpy - copies a string from source to destiantion
+ * @d: The destiantion buffer
+ * @s: The source buffer
+ * Return: pointer to destination buffer
+ */
+char *_strcpy(char *d, char *s)
+{
+	int i = 0;
+
+	if (d == s || s == 0)
+	        return (d);
+
+        while (s[i])
+        {
+		d[i] = s[i];
+		i++;
+	}
+	d[i] = '\0';
+
+	return (d);
 }

@@ -61,7 +61,7 @@ char **split_string2(char *str, char dd)
 	int i, x, k, m, numword = 0;
 	char **strings;
 
-	if (str == NULL || str[0] == 0)
+	if (str == NULL || str[0] == '\0')
 		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
 	{
@@ -76,10 +76,10 @@ char **split_string2(char *str, char dd)
 		return (NULL);
 	for (i = 0, x = 0; x < numword; x++)
 	{
-		while (str[i] == dd && str[i])
+		while (str[i] == dd)
 			i++;
 		k = 0;
-		while (str[i + k] != dd && str[i + k] && str[i + k] != dd)
+		while (str[i + k] != dd && str[i + k])
 			k++;
 		strings[x] = malloc((k + 1) * sizeof(char));
 		if (!strings[x])
@@ -91,7 +91,7 @@ char **split_string2(char *str, char dd)
 		}
 		for (m = 0; m < k; m++)
 			strings[x][m] = str[i++];
-		strings[x][m] = 0;
+		strings[x][m] = '\0';
 	}
 	strings[x] = NULL;
 	return (strings);
