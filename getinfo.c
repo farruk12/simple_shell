@@ -1,79 +1,75 @@
 #include "main.h"
 
 /**
- * clear_information - clear the fields of info_t struct
- * @info: pointer to the info_t struct
+ * n_clear_info - initializes memb_t structure
+ * @member: structure address
+ * Return: void.
  */
-void clear_information(info_t *info)
+void n_clear_info(memb_t *member)
 {
-	info->arg = NULL;
-	info->argv = NULL;
-	info->path = NULL;
-	info->argc = 0;
+	member->arg = NULL;
+	member->argv = NULL;
+	member->path = NULL;
+	member->argc = 0;
 }
 
 /**
- * set_information - initializes the info_t struct
- * @info: pointer to the info_t struct
+ * n_set_info - initializes memb_t struct
+ * @member: structure address
  * @av: argument vector
+ * Return: void
  */
-void set_information(info_t *info, char **av)
+void n_set_info(memb_t *member, char **av)
 {
 	int i = 0;
 
-	info->fname = av[0];
-	if (info->arg)
+	member->fname = av[0];
+	if (member->arg)
 	{
-		info->argv = split_string(info->arg, " \t");
-
-		if (!info->argv)
+		member->argv = n_strtow(member->arg, " \t");
+		if (!member->argv)
 		{
-			info->argv = malloc(sizeof(char *) * 2);
-			if (info->argv)
+			member->argv = malloc(sizeof(char *) * 2);
+			if (member->argv)
 			{
-				info->argv[0] = _strdup(info->arg);
-				info->argv[1] = NULL;
+				member->argv[0] = n_strdup(member->arg);
+				member->argv[1] = NULL;
 			}
 		}
-		for (i = 0; info->argv && info->argv[i]; i++)
-			info->argc = i;
+		for (i = 0; member->argv && member->argv[i]; i++)
+			member->argc = i;
 
-		replace_alias(info);
-		replace_vars(info);
+		n_replace_alias(member);
+		n_replace_vars(member);
 	}
 }
-/**
- * free_information - Frees fields in the info_t struct.
- * @info: Pointer to the info_t struct.
- * @all: True if freeing all fields, false otherwise.
- */
-void free_information(info_t *info, int all)
-{
-	ffree(info->argv);
-	info->argv = NULL;
-	info->path = NULL;
 
+/**
+ * n_free_info - frees info_t struct fields
+ * @member: struct address
+ * @all: true if freeing all fields
+ * Return: void
+ */
+void n_free_info(memb_t *member, int all)
+{
+	n_ffree(member->argv);
+	member->argv = NULL;
+	member->path = NULL;
 	if (all)
 	{
-		if (!info->cmd_buf)
-			free(info->arg);
-
-		if (info->env)
-			free_list(&(info->env));
-
-		if (info->history)
-			free_list(&(info->history));
-
-		if (info->alias)
-			free_list(&(info->alias));
-
-		ffree(info->environ);
-		info->environ = NULL;
-		freed((void **)info->cmd_buf);
-		if (info->readfd > 2)
-		{
-			close(info->readfd);
-		}
-		_putchar(FLUSH);
+		if (!member->cmd_buf)
+			free(member->arg);
+		if (member->env)
+			n_free_list(&(member->env));
+		if (member->history)
+			n_free_list(&(member->history));
+		if (member->alias)
+			n_free_list(&(member->alias));
+		n_ffree(member->environ);
+			member->environ = NULL;
+		n_bfree((void **)member->cmd_buf);
+		if (member->readfd > 2)
+			close(member->readfd);
+		n_putchar(BUF_FLUSH);
 	}
 }

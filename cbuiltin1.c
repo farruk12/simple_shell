@@ -1,115 +1,109 @@
 #include "main.h"
+
 /**
- * _history - displays the history list, one command per line
- * @info: structure containing potential arguments
- * Return: Always 0
+ *n_myhistory - displays the history list each command on seperate line
+ *@member: Struct containg members used in most functions
+ *Return: always 0;
  */
-int _history(info_t *info)
+int n_myhistory(memb_t *member)
 {
-	print_list(info->history);
+	n_print_list(member->history);
 	return (0);
 }
-/**
- * unset_alias - unsets an alias
- * @info: the parameter struct
- * @str: The string rep the alias to unste
- * Return: Always 0 on success
- */
-int unset_alias(info_t *info, char *str)
-{
-	char *p, c;
-	int r;
 
-	p = _strchr(str, '=');
-	if (!p)
-	{
-		return (1);
-	}
-	c = *p;
-	*p = 0;
-	r = delete_node_at_index(&(info->alias),
-			get_node_index(info->alias,
-				node_starts_with(info->alias, str, -1)));
-	*p = c;
-	return (r);
-}
 /**
- * set_alias - set an alias to a string
- * @info: The parameter struct
- * @str: string rep the alias in format "alias_name=alias_value"
- * Return: Always 0 on success, 1 on error
+ *n_print_alias - prints an alias string
+ *@node: the alias node
+ *Return: always 0 on success else otherwise
  */
-int set_alias(info_t *info, char *str)
+int n_print_alias(list_t *node)
 {
-	char *p;
-
-	p = _strchr(str, '=');
-	if (!p)
-	{
-		return (1);
-	}
-	if (!*++p)
-	{
-		return (unset_alias(info, str));
-	}
-	unset_alias(info, str);
-	return (add_node_end(&(info->alias), str, 0) == NULL);
-}
-/**
- * print_alias - prints an alias string
- * @node: The alias node containing the alias string
- * Return: Always 0 on success, 1 on error
- */
-int print_alias(list_t *node)
-{
-	char *p = NULL, *a = NULL;
+	char *c = NULL, *s = NULL;
 
 	if (node)
 	{
-		p = _strchr(node->str, '=');
-		for (a = node->str; a <= p; a++)
-		{
-			_putchar(*a);
-		}
-		_putchar('\'');
-		_puts(p + 1);
-		_puts("'\n");
+		c = n_strchr(node->str, '=');
+		for (s = node->str; s <= c; s++)
+			n_putchar(*s);
+		n_putchar('\'');
+		n_puts(c + 1);
+		n_puts("'\n");
 		return (0);
 	}
 	return (1);
 }
+
 /**
- * my_alias - mimics the alias buitlin
- * @info: structure containing potential arguments
- * Return: Always 0
+ *n_set_alias - create an alias
+ *@memb: Struct containg members used in most functions
+ *@str: a string alias
+ *Return: always 0 on success else otherwise
  */
-int my_alias(info_t *info)
+int n_set_alias(memb_t *memb, char *str)
+{
+	char *p;
+
+	p = n_strchr(str, '=');
+	if (!p)
+		return (1);
+	if (!*++p)
+		return (n_unset_alias(memb, str));
+
+	n_unset_alias(memb, str);
+	return (n_add_node_end(&(memb->alias), str, 0) == NULL);
+}
+
+/**
+ *n_unset_alias - delete the alias for a command
+ *@memb: Struct containg members used in most functions
+ *@str: the string alias
+ *Return: always 0 on success else otherwise
+ */
+int n_unset_alias(memb_t *memb, char *str)
+{
+	char *p, c;
+	int ret;
+
+	p = n_strchr(str, '=');
+	if (!p)
+		return (1);
+	c = *p;
+	*p = 0;
+	ret = n_delete_node_at_index(&(memb->alias),
+		n_get_node_index(memb->alias, n_node_starts_with(memb->alias, str, -1)));
+	*p = c;
+	return (ret);
+}
+
+/**
+ *n_myalias - mimics the alias builtin alias command
+ *@member: Struct containg members used in most functions
+ *Return: always 0
+ */
+int n_myalias(memb_t *member)
 {
 	int i = 0;
 	char *p = NULL;
 	list_t *node = NULL;
 
-	if (info->argc == 1)
+	if (member->argc == 1)
 	{
-		node = info->alias;
+		node = member->alias;
 		while (node)
 		{
-			print_alias(node);
+			n_print_alias(node);
 			node = node->next;
 		}
 		return (0);
 	}
-	for (i = 1; info->argv[i]; i++)
+	for (i = 1; member->argv[i]; i++)
 	{
-		p = _strchr(info->argv[i], '=');
+		p = n_strchr(member->argv[i], '=');
 		if (p)
-		{
-			set_alias(info, info->argv[i]);
-		}
+			n_set_alias(member, member->argv[i]);
 		else
-		{
-			print_alias(node_starts_with(info->alias, info->argv[i], '='));
-		}
+			n_print_alias(n_node_starts_with(member->alias, member->argv[i], '='));
 	}
+
 	return (0);
 }

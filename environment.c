@@ -1,93 +1,86 @@
 #include "main.h"
 
 /**
- * my_enviroment - Prints the current environment.
- * @info: Structure containing potential arguments.
- * Return: Always 0.
+ *n_getenv - gets the value of an environ variable
+ *@member: Struct containing all the needed arguments
+ *@c: env variable name
+ *Return: the value gotten
  */
-int my_enviroment(info_t *info)
+char *n_getenv(memb_t *member, const char *c)
 {
-	print_list_str(info->env);
-	return (0);
-}
-
-/**
- * _getenvs - Gets the value of an environment variable.
- * @info: Structure containing potential arguments.
- * @name: Env var name.
- * Return: The value of the environment variable, or NULL if not found.
- */
-char *_getenvs(info_t *info, const char *name)
-{
-	list_t *node  = info->env;
-	char *t;
+	list_t *node = member->env;
+	char *b;
 
 	while (node)
 	{
-		t  = starts_with(node->str, name);
-		if (t && *t)
-			return (t);
-
+		b = n_starts_with(node->str, c);
+		if (b && *b)
+			return (b);
 		node = node->next;
 	}
 	return (NULL);
 }
+
 /**
- * mys_setenv - Initialize a new environment variable or modify existing one
- * @info: Structure containing potential arguments.
- * Return: Always 0.
+ *n_myenv - function that prints the current environment
+ *@member: Struct containing all the needed arguments
+ *Return: always 0
  */
-int mys_setenv(info_t *info)
+int n_myenv(memb_t *member)
 {
-	if (info->argc != 3)
+	n_print_list_str(member->env);
+	return (0);
+}
+
+/**
+ *n_mysetenv - initialize a new environment or modify an existing one
+ *@member: Struct containing all the needed arguments
+ *Return: always success
+ */
+int n_mysetenv(memb_t *member)
+{
+	if (member->argc != 3)
 	{
-		my_inputs("Wrong argument amount\n");
+		n_eputs("Incorrect number of arguements\n");
 		return (1);
 	}
-	if (_setenviroment(info, info->argv[1], info->argv[2]))
+	if (n_setenv(member, member->argv[1], member->argv[2]))
 		return (0);
-
 	return (1);
 }
-/**
- * mys_unsetenv - Remove an environment variable.
- * @info: Structure containing potential arguments.
- * Description: This function removes one or more environment variables.
- * Return: Always 0.
- */
-int mys_unsetenv(info_t *info)
-{
-	int j;
 
-	if (info->argc == 1)
+/**
+ *n_myunsetenv - function that removes an environment variable
+ *@member: Struct containing all the needed arguments
+ *Return: always 0
+ */
+int n_myunsetenv(memb_t *member)
+{
+	int i;
+
+	if (member->argc == 1)
 	{
-		my_inputs("Few arguments.\n");
+		n_eputs("Too few arguements.\n");
 		return (1);
 	}
-	for (j = 1; j <= info->argc; j++)
-	{
-		_unsetenviroment(info, info->argv[j]);
-	}
+	for (i = 1; i <= member->argc; i++)
+		n_unsetenv(member, member->argv[i]);
 
 	return (0);
 }
 
 /**
- * displays_env_list - Populates an environment linked list
- * @info: Structure containing potential arguments.
- * Return: Always 0.
+ *n_populate_env_list - function that populates env linked list
+ *@member: Struct containing all the needed arguments
+ *Return: 0
  */
-
-int displays_env_list(info_t *info)
+int n_populate_env_list(memb_t *member)
 {
-	list_t *n = NULL;
+	list_t *node = NULL;
 	size_t i;
 
 	for (i = 0; environ[i]; i++)
-	{
-		add_node_end(&n, environ[i], 0);
-	}
-	info->env = n;
-
+		n_add_node_end(&node, environ[i], 0);
+	member->env = node;
 	return (0);
 }

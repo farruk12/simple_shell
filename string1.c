@@ -1,89 +1,87 @@
 #include "main.h"
 
 /**
- * _strdup - deuplicates a string
- * @s: the string to duplicate
- * Return: pointer to dup string
+ * n_strcpy - copies a string
+ * @dest: the destination
+ * @src: the source
+ *
+ * Return: pointer to destination
  */
-char *_strdup(const char *s)
+char *n_strcpy(char *dest, char *src)
 {
-	int len = 0;
+	int i = 0;
+
+	if (dest == src || src == 0)
+		return (dest);
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+/**
+ * n_strdup - duplicates a string
+ * @str: the string to duplicate
+ *
+ * Return: pointer to the duplicated string
+ */
+char *n_strdup(const char *str)
+{
+	int length = 0;
 	char *ret;
 
-	if (s == NULL)
+	if (str == NULL)
 		return (NULL);
-
-	while (*s++)
-		len++;
-
-	ret = malloc(sizeof(char) * (len + 1));
+	while (*str++)
+		length++;
+	ret = malloc(sizeof(char) * (length + 1));
 	if (!ret)
 		return (NULL);
-
-	for (len++; len--;)
-		ret[len] = *--s;
-
+	for (length++; length--;)
+		ret[length] = *--str;
 	return (ret);
 }
 
 /**
- * _puts - my puts function
- * @s: my parameter
- * Return: nothing
+ * n_puts - prints an input string
+ *@str: the string to be printed
+ *
+ * Return: Nothing
  */
-
-void _puts(char *s)
+void n_puts(char *str)
 {
 	int i = 0;
 
-	if (!s)
+	if (!str)
 		return;
-
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 	{
-		_putchar(s[i]);
+		n_putchar(str[i]);
 		i++;
 	}
 }
-/**
- * _putchar - write the character c to the stdout
- * @c: the character to print
- * Return: on sucess 1, else 0
- */
-int _putchar(char c)
-{
-	static char buffer[WRITE_BUFFER_SIZE];
-	static  int i;
 
-	if (c == FLUSH || i >= WRITE_BUFFER_SIZE)
+/**
+ * n_putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int n_putchar(char c)
+{
+	static int i;
+	static char buf[WRITE_BUF_SIZE];
+
+	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 	{
-		write(1, buffer, i);
+		write(1, buf, i);
 		i = 0;
 	}
-	if (c != FLUSH)
-		buffer[i++] = c;
-
+	if (c != BUF_FLUSH)
+		buf[i++] = c;
 	return (1);
-}
-/**
- * _strcpy - copies a string from source to destiantion
- * @d: The destiantion buffer
- * @s: The source buffer
- * Return: pointer to destination buffer
- */
-char *_strcpy(char *d, char *s)
-{
-	int i = 0;
-
-	if (d == s || s == 0)
-		return (d);
-
-	while (s[i])
-	{
-		d[i] = s[i];
-		i++;
-	}
-	d[i] = '\0';
-
-	return (d);
 }
