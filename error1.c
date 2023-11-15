@@ -2,7 +2,7 @@
 
 /**
  *n_erratoi - converts a string to a integer
- *@str: string to be converted and should be numerics
+ *@str: string
  *Return: success and -1 on error
  */
 int n_erratoi(char *str)
@@ -29,8 +29,8 @@ int n_erratoi(char *str)
 
 /**
  *n_print_error - prints error messages
- *@member: Struct containing all the needed arguments
- *@str: array of characters, string
+ *@member: Struct
+ *@str: array of characters
  *Return: success and -1 on error
  */
 void n_print_error(memb_t *member, char *str)
@@ -45,10 +45,10 @@ void n_print_error(memb_t *member, char *str)
 }
 
 /**
- *n_print_d - function that prints decimal integer
- *@buffer: integer input
- *@fd: the file descriptor
- *Return: number of chars printed
+ *n_print_d - function that prints decimal
+ *@buffer: integer
+ *@fd: file descriptor
+ *Return: number of characters printed
  */
 int n_print_d(int buffer, int fd)
 {
@@ -83,7 +83,7 @@ int n_print_d(int buffer, int fd)
 }
 
 /**
- *n_convert_number - clone of itoa
+ *n_convert_number - function
  *@num: long integer number
  *@base: integer base
  *@flags: argument
@@ -119,7 +119,7 @@ char *n_convert_number(long int num, int base, int flags)
 }
 
 /**
- *n_remove_comments - function replaces first instance of '#' with '\0'
+ *n_remove_comments - function that removes comments
  *@buffer: address of the string to modify
  *Return: always success
  */

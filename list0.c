@@ -3,7 +3,7 @@
 /**
  * n_add_node - Adds a node to the start of the list.
  * @head: Address of pointer to the head node.
- * @str: Str field of the new node.
+ * @str: field of the new node.
  * @numbs: Node index used by history.
  * Return: Pointer to the newly added node, or NULL on failure.
  */
@@ -39,7 +39,7 @@ list_t *n_add_node(list_t **head, const char *str, int numbs)
 /**
  * n_add_node_end - Adds a node to the end of the list.
  * @head: Address of pointer to the head node.
- * @str: Str field of the new node.
+ * @str:  field of the new node.
  * @numbs: Node index used by history.
  * Return: Pointer to the newly added node, or NULL on failure.
  */
@@ -81,7 +81,7 @@ list_t *n_add_node_end(list_t **head, const char *str, int numbs)
 }
 
 /**
- * n_print_list_str - Prints only the 'str' element of a list_t linked list.
+ * n_print_list_str - Prints 'str' element of a list_t linked list.
  * @head: Pointer to first node
  * Return: Size of the list.
  */

@@ -18,7 +18,7 @@ size_t n_list_len(const list_t *j)
 }
 
 /**
- *n_list_to_strings - function that returns arr of strings of te list->str
+ *n_list_to_strings -  returns arr of strings of the list->str
  *@head: pointer to first node
  *Return: array of strings
  */
@@ -53,7 +53,7 @@ char **n_list_to_strings(list_t *head)
 }
 
 /**
- *n_print_list - function that print the whole linked list
+ *n_print_list - function that print whole linked list
  *@j: pointer to first node
  *Return: size of list
  */
@@ -75,7 +75,7 @@ size_t n_print_list(const list_t *j)
 }
 
 /**
- *n_node_starts_with - function thst returns node whose string starts with pref
+ *n_node_starts_with - function that returns node whose string starts with prefix
  *@node: pointer to list head
  *@prefix: string to match
  *@c: the next char after prefix to match
@@ -96,10 +96,10 @@ list_t *n_node_starts_with(list_t *node, char *prefix, char c)
 }
 
 /**
- *n_get_node_index - func that gets the index of a node
+ *n_get_node_index - function that gets the index of a node
  *@head: pointer to first node
  *@node: pointer to the node
- *Return: the index of the node if successfull else -1
+ *Return: the index of the node if successful
  */
 ssize_t n_get_node_index(list_t *head, list_t *node)
 {

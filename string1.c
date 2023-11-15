@@ -25,7 +25,6 @@ char *n_strcpy(char *dest, char *src)
 /**
  * n_strdup - duplicates a string
  * @str: the string to duplicate
- *
  * Return: pointer to the duplicated string
  */
 char *n_strdup(const char *str)
@@ -48,7 +47,6 @@ char *n_strdup(const char *str)
 /**
  * n_puts - prints an input string
  *@str: the string to be printed
- *
  * Return: Nothing
  */
 void n_puts(char *str)
@@ -66,10 +64,9 @@ void n_puts(char *str)
 
 /**
  * n_putchar - writes the character c to stdout
- * @c: The character to print
- *
+ * @c: character to print
  * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * On error -1 is returned.
  */
 int n_putchar(char c)
 {

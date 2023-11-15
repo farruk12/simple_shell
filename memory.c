@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * n_bfree - frees a pointer and NULLs the address
+ * n_bfree - frees a pointer 
  * @p: address of the pointer to free
- * Return: 1 if freed success, otherwise 0.
+ * Return: 1 if freed success.
  */
 int n_bfree(void **p)
 {

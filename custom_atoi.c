@@ -1,8 +1,7 @@
 #include "main.h"
 
 /**
- *n_interactive - checks whether the current interaction
- *with a program is happening in an interactive mode
+ *n_interactive - checks current interaction
  *@memb: a struct object that will be used to access the structure
  *Return: (1) if in the interactive mode else (0)
  */
@@ -14,7 +13,7 @@ int n_interactive(memb_t *memb)
 /**
  *n_is_delim - to check for the delimeter
  *@delimeter: delimeter to be passed
- *@z: a string that will be used to check for the delimiter
+ *@z: check for the delimiter
  *Return: (1) if the delimeter is found else (0)
  */
 int n_is_delim(char delimeter, char *z)
@@ -29,7 +28,7 @@ int n_is_delim(char delimeter, char *z)
 
 /**
  *n_isalpha - checks for alphabetic character
- *@b: The character to input
+ *@b: character to input
  *Return: (1) if p is alphabetic, else (0)
  */
 

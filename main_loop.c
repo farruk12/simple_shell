@@ -2,8 +2,8 @@
 
 /**
  *n_hsh - main shell loop
- *@member: the struct
- *@av: the argument vector from main
+ *@member: struct
+ *@av: the argument vector
  *Return: 0 on success
  */
 int n_hsh(memb_t *member, char **av)
@@ -43,8 +43,8 @@ int n_hsh(memb_t *member, char **av)
 }
 
 /**
- *n_find_builtin - finds a built in comand
- *@member: te struct
+ *n_find_builtin - finds a builtin command
+ *@member: struct
  *Return: -1 if not found
  */
 int n_find_builtin(memb_t *member)
@@ -74,7 +74,7 @@ int n_find_builtin(memb_t *member)
 
 /**
  *n_find_cmd - find a command in path
- *@member: the struct
+ *@member: struct
  *Return: void
  */
 void n_find_cmd(memb_t *member)
@@ -114,7 +114,7 @@ void n_find_cmd(memb_t *member)
 }
 
 /**
- *n_fork_cmd - forks a exec tread to run cmd
+ *n_fork_cmd - forks a cmd
  *@member: the struct
  */
 void n_fork_cmd(memb_t *member)

@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * n_input_buf - buffers chained commands
- * @member: parameter struct
+ * n_input_buf - buffers chained cmds
+ * @member: struct
  * @buf: address of buffer
  * @len: address of len var
  * Return: bytes read
@@ -42,8 +42,8 @@ ssize_t n_input_buf(memb_t *member, char **buf, size_t *len)
 }
 
 /**
- *n_get_input - gets a line without the newline
- *@member: parameter struct
+ *n_get_input - gets a line without newline
+ *@member: struct
  *Return: bytes read
  */
 ssize_t n_get_input(memb_t *member)
@@ -87,9 +87,9 @@ ssize_t n_get_input(memb_t *member)
 
 /**
  *n_getline - gets the next line of input from STDIN
- *@member: parameter struct
- *@ptr: address of pointer to buffer
- *@length: size of preallocated ptr buffer
+ *@member: struct
+ *@ptr: address
+ *@length: size of buffer
  *Return: s
  */
 int n_getline(memb_t *member, char **ptr, size_t *length)
@@ -152,8 +152,8 @@ ssize_t n_read_buf(memb_t *info, char *buf, size_t *i)
 }
 
 /**
- *n_sigintHandler - blocks ctrl - C
- *@sig_num: th signal number
+ *n_sigintHandler - blocks ctrl C
+ *@sig_num: the signal number
  *Return: void
  */
 void n_sigintHandler(__attribute__((unused))int sig_num)

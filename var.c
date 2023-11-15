@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- *n_is_chain - function that tests if char buffer
- *@member: parameter structure
+ *n_is_chain - function
+ *@member: structure
  *@buffer: char buffer
  *@q: address of current position
- *Return: 1 if succes, 0 otherwise
+ *Return: 1 if success
  */
 int n_is_chain(memb_t *member, char *buffer, size_t *q)
 {
@@ -35,7 +35,7 @@ int n_is_chain(memb_t *member, char *buffer, size_t *q)
 }
 
 /**
- * n_check_chain - func that checks if we should continue chaining based
+ * n_check_chain - function
  * @member: the structure
  * @buffer: the char buffer
  * @q: address of current position in buffer

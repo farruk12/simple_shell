@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * n_is_cmd - determines if a file is an executable command
- * @member: the member struct
+ * n_is_cmd - determines if a file is an exec command
+ * @member: struct
  * @path: path to the file
  * Return: 1 if true, 0 otherwise
  */
@@ -42,10 +42,10 @@ char *n_dup_chars(char *pathstr, int start, int stop)
 
 /**
  * n_find_path - finds this cmd in the PATH string
- * @member: the info struct
+ * @member: struct
  * @pathstr: the PATH string
  * @cmd: the cmd to find
- * Return: full path of cmd if found or NULL
+ * Return: full path of cmd if found
  */
 char *n_find_path(memb_t *member, char *pathstr, char *cmd)
 {

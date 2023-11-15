@@ -2,7 +2,7 @@
 
 /**
  * n_clear_info - initializes memb_t structure
- * @member: structure address
+ * @member: structure
  * Return: void.
  */
 void n_clear_info(memb_t *member)
@@ -15,7 +15,7 @@ void n_clear_info(memb_t *member)
 
 /**
  * n_set_info - initializes memb_t struct
- * @member: structure address
+ * @member: structure
  * @av: argument vector
  * Return: void
  */
@@ -46,7 +46,7 @@ void n_set_info(memb_t *member, char **av)
 
 /**
  * n_free_info - frees info_t struct fields
- * @member: struct address
+ * @member: struct
  * @all: true if freeing all fields
  * Return: void
  */

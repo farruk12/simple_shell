@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * n_get_environ - function of the string array copy of our environ
- * @member: Structure containing all members
+ * n_get_environ - function
+ * @member: Structure
  * Return: Always success
  */
 char **n_get_environ(memb_t *member)
@@ -17,9 +17,9 @@ char **n_get_environ(memb_t *member)
 }
 
 /**
- * n_unsetenv - function that removes an env't variable from the linked list.
- * @member: Structure containing all members
- * @variable: The string representing the environment variable to remove.
+ * n_unsetenv - function that removes an env variable from the linked list.
+ * @member: Structure
+ * @variable: The string rep environment variable to remove.
  * Return: 1 for success, 0- failure
  */
 int n_unsetenv(memb_t *member, char *variable)
@@ -48,9 +48,9 @@ int n_unsetenv(memb_t *member, char *variable)
 }
 
 /**
- * n_setenv - function for the new env't
- * @member: Structure containing all members
- * @variable: the string env var property
+ * n_setenv - function for the new env
+ * @member: Structure
+ * @variable: the string env var
  * @val: the string env var value
  * Return: Always success 0
  */

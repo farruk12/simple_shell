@@ -3,9 +3,9 @@
 /**
  **n_memset - fills memory with a constant bytes
  *@d: pointer to the memory area
- *@b: byte to fill *d with
+ *@b: byte to fill with
  *@numbs: amount of bytes to be filled
- *Return: (d) a pointer to the memory area d
+ *Return: (d) a pointer to the memory area
  */
 char *n_memset(char *d, char b, unsigned int numbs)
 {
@@ -24,7 +24,7 @@ char *n_memset(char *d, char b, unsigned int numbs)
 /**
  * n_ffree - frees a pointer of strings
  * @dptr: double pointer strings
- * Return: nothing, void.
+ * Return: void.
  */
 void n_ffree(char **dptr)
 {
@@ -39,7 +39,7 @@ void n_ffree(char **dptr)
 
 /**
  * n_realloc - reallocates a block of memory
- * @ptr: pointer to previous memory allocated block
+ * @ptr: pointer
  * @_old_size: byte size of previous block
  * @_new_size: byte size of new block
  * Return: pointer to the old block.

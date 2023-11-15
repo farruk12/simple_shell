@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- *n_myhistory - displays the history list each command on seperate line
- *@member: Struct containg members used in most functions
+ *n_myhistory - displays the history list 
+ *@member: Struct used 
  *Return: always 0;
  */
 int n_myhistory(memb_t *member)
@@ -12,7 +12,7 @@ int n_myhistory(memb_t *member)
 }
 
 /**
- *n_print_alias - prints an alias string
+ *n_print_alias - prints alias string
  *@node: the alias node
  *Return: always 0 on success else otherwise
  */
@@ -34,9 +34,9 @@ int n_print_alias(list_t *node)
 }
 
 /**
- *n_set_alias - create an alias
- *@memb: Struct containg members used in most functions
- *@str: a string alias
+ *n_set_alias - set an alias
+ *@memb: Struct
+ *@str: a string
  *Return: always 0 on success else otherwise
  */
 int n_set_alias(memb_t *memb, char *str)
@@ -54,9 +54,9 @@ int n_set_alias(memb_t *memb, char *str)
 }
 
 /**
- *n_unset_alias - delete the alias for a command
- *@memb: Struct containg members used in most functions
- *@str: the string alias
+ *n_unset_alias - delete the alias
+ *@memb: Struct
+ *@str: the string
  *Return: always 0 on success else otherwise
  */
 int n_unset_alias(memb_t *memb, char *str)
@@ -76,8 +76,8 @@ int n_unset_alias(memb_t *memb, char *str)
 }
 
 /**
- *n_myalias - mimics the alias builtin alias command
- *@member: Struct containg members used in most functions
+ *n_myalias - custom alias command
+ *@member: Struct
  *Return: always 0
  */
 int n_myalias(memb_t *member)

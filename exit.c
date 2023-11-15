@@ -4,7 +4,7 @@
  *n_strncpy - function copies a string
  *@dest: destination string
  *@src: source string
- *@n: amount chars
+ *@n: amount of characters
  *Return: the concanated string
  */
 char *n_strncpy(char *dest, char *src, int n)
@@ -34,7 +34,7 @@ char *n_strncpy(char *dest, char *src, int n)
  *n_strncat - function that concatenates two strings
  *@dest: destination string
  *@src: source string
- *@n: amount of chars
+ *@n: amount of characters
  *Return: the concatenated string
  */
 char *n_strncat(char *dest, char *src, int n)
@@ -58,7 +58,7 @@ char *n_strncat(char *dest, char *src, int n)
 }
 
 /**
- *n_strchr - func that locates a chars in a string
+ *n_strchr - func that locates a character in a string
  *@s: the string to be parsed
  *@c: the character to look for
  *Return: a pointer to the memory area

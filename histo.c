@@ -2,7 +2,7 @@
 
 /**
  *n_get_history_file - function that gets file history
- *@member: Struct containing all the needed arguments
+ *@member: Struct
  *Return: allocated memory string
  */
 char *n_get_history_file(memb_t *member)
@@ -23,8 +23,8 @@ char *n_get_history_file(memb_t *member)
 }
 
 /**
- *n_write_history - function that creates file if dont exist, otherwise appends
- *@member: Struct containing all the needed arguments
+ *n_write_history - function that creates file if non-existent, otherwise appends
+ *@member: Struct
  *Return: 1 on success
  */
 int n_write_history(memb_t *member)
@@ -52,7 +52,7 @@ int n_write_history(memb_t *member)
 
 /**
  *n_read_history - function that reads from a file
- *@member: Struct containing all the needed arguments
+ *@member: Struct
  *Return: histcount on success
  */
 int n_read_history(memb_t *member)
@@ -99,10 +99,10 @@ int n_read_history(memb_t *member)
 }
 
 /**
- *n_build_history_list - function that adds entry to a linked list
- *@member: Struct containing all the needed arguments
+ *n_build_history_list - function
+ *@member: Struct
  *@buffer: buffer
- *@line_count: linecount for the history
+ *@line_count: linecount
  *Return: always 0
  */
 int n_build_history_list(memb_t *member, char *buffer, int line_count)
@@ -119,8 +119,8 @@ int n_build_history_list(memb_t *member, char *buffer, int line_count)
 }
 
 /**
- *n_renumber_history - function that renumbers th ehistory linked list changes
- *@member: Struct containing all the needed arguments
+ *n_renumber_history - function that renumbers the history linked list
+ *@member: Struct
  *Return: the new histcount
  */
 int n_renumber_history(memb_t *member)

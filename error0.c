@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * n_eputs - Prints an input string to stderr.
- * @str: String to be printed
+ * n_eputs - Prints input string to stderr.
+ * @str: String
  * Return: void
  */
 void n_eputs(char *str)
@@ -20,8 +20,8 @@ void n_eputs(char *str)
 }
 
 /**
- * n_eputchar - Writes the char v to stderr.
- * @v: The char to printed
+ * n_eputchar - Writes char to stderr.
+ * @v: char to printed
  * Return: 1 on success, error, -1 and errno
  */
 int n_eputchar(char v)
@@ -43,8 +43,8 @@ int n_eputchar(char v)
 }
 
 /**
- * n_putfd - Writes the char v to the given file descriptor
- * @v: Character to print.
+ * n_putfd - Writes char to  file descriptor
+ * @v: Character
  * @fd: File descriptor to write to.
  * Return: On success 1, On error, -1 is returned and errno
  */
@@ -67,8 +67,8 @@ int n_putfd(char v, int fd)
 }
 
 /**
- * n_putsfd - Prints an input string to the specified file descriptor.
- * @str: String to be printed.
+ * n_putsfd - Prints input string to file descriptor.
+ * @str: String
  * @fd: File descriptor to write into.
  * Return: no. of characters
  */

@@ -2,8 +2,8 @@
 
 /**
  *n_strlen - function that return the length of a string
- *@c: the string
- *Return: integer kength
+ *@c: string
+ *Return: integer length
  */
 int n_strlen(char *c)
 {
@@ -56,8 +56,8 @@ char *n_starts_with(const char *haystack, const char *needle)
 
 /**
  *n_strcat - function that concatenates two strings
- *@dest: the destination buffer
- *@src: the source buffer
+ *@dest: the destination
+ *@src: the source
  *Return: pointer to destination buffer
  */
 char *n_strcat(char *dest, char *src)

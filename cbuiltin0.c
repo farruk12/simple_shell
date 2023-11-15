@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * n_myexit - function name
- * @member: argument name
+ * n_myexit - exit function
+ * @member: my parameter
  * Return: always success
  */
 int n_myexit(memb_t *member)
@@ -29,8 +29,8 @@ int n_myexit(memb_t *member)
 }
 
 /**
- * n_mycd - Changes  current directory of the process.
- * @member: Structure member containing potential arguments.
+ * n_mycd - Changes current directory.
+ * @member: Structure member.
  * Return: Always success.
  */
 int n_mycd(memb_t *member)
@@ -78,8 +78,8 @@ int n_mycd(memb_t *member)
 }
 
 /**
- * n_myhelp - Prints a help message for the shell.
- * @member: Structure containing potential arguments.
+ * n_myhelp - Prints a help message.
+ * @member: Structure.
  * Return: Always success.
  */
 int n_myhelp(memb_t *member)
