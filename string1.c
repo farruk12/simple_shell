@@ -25,6 +25,13 @@ char *_strdup(const char *s)
 
 	return (ret);
 }
+
+/**
+ * _puts - my puts function
+ * @s: my parameter
+ * Return: nothing
+ */
+
 void _puts(char *s)
 {
 	int i = 0;
@@ -69,10 +76,10 @@ char *_strcpy(char *d, char *s)
 	int i = 0;
 
 	if (d == s || s == 0)
-	        return (d);
+		return (d);
 
-        while (s[i])
-        {
+	while (s[i])
+	{
 		d[i] = s[i];
 		i++;
 	}
