@@ -12,6 +12,8 @@ char *_memset(char *buffer, char value, unsigned int num)
 {
 	unsigned int i;
 
+	if (buffer == NULL || num == 0)
+		return (NULL);
 	for (i = 0; i < num; i++)
 		buffer[i] = value;
 	return (buffer);
@@ -19,7 +21,7 @@ char *_memset(char *buffer, char value, unsigned int num)
 
 /**
  * ffree - frees string of strings
- * @pps: pointer to string of strings
+ * @pp: pointer to string of strings
  * Return: void
  */
 void ffree(char **pp)

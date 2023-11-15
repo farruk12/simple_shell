@@ -28,7 +28,6 @@ char **split_string(char *str, char *delim)
 	words = malloc((1 + numword) * sizeof(char *));
 	if (!words)
 		return (NULL);
-
 	for (i = 0, x = 0; x < numword; x++)
 	{
 		while (check_delim(str[i], delim))

@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * my_environment - Prints the current environment.
+ * my_enviroment - Prints the current environment.
  * @info: Structure containing potential arguments.
  * Return: Always 0.
  */
@@ -73,7 +73,7 @@ int mys_unsetenv(info_t *info)
 }
 
 /**
- * displays_env - Populates an environment linked list
+ * displays_env_list - Populates an environment linked list
  * @info: Structure containing potential arguments.
  * Return: Always 0.
  */

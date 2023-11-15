@@ -26,9 +26,9 @@ char *_strdup(const char *s)
 	return (ret);
 }
 /**
- * start_with - checks if the substring neddle
+ * starts_with - checks if the substring neddle
  * @hay: the string to search
- * @needle: the substring to find
+ * @need: the substring to find
  * Return: address of next char
  */
 char *starts_with(const char *hay, const char *need)

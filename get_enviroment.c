@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * get_enviroment - returns the string array copy of our environ
+ * get_environment - returns the string array copy of our environ
  * @info: structure containing potential arguments.
  * Return: Always 0
  */

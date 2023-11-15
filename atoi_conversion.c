@@ -1,10 +1,9 @@
 #include "main.h"
 
 /**
- * check_interactive - function to change string to integer
- * @label: instance of the structure
+ * check_interactive_mode - function to change string to integer
+ * @info: instance of the structure
  * Return: return 1 if shell is in iteractive mode
- * return 0 if otherwise
  */
 
 int check_interactive_mode(info_t *info)

@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * input_buffer - Buffers chained commands for processing.
+ * input_buf - Buffers chained commands for processing.
  * @info: pointer to the parameter struct.
  * @buf: Adress of buffer
  * @len: Address of en variable.
@@ -85,7 +85,7 @@ ssize_t get_input(info_t *info)
 	return (read);
 }
 /**
- * read_buffer - Reads a buffer from the input file descriptor.
+ * read_buf - Reads a buffer from the input file descriptor.
  * @info: Pointer to the parameter struct
  * @buf: Buffer to store raed data.
  * @i: Pointer to the size of the buffer

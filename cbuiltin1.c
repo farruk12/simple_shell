@@ -10,7 +10,7 @@ int _history(info_t *info)
 	return (0);
 }
 /**
- * _alias - unsets an alias
+ * unset_alias - unsets an alias
  * @info: the parameter struct
  * @str: The string rep the alias to unste
  * Return: Always 0 on success

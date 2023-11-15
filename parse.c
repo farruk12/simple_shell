@@ -44,7 +44,7 @@ char *aduplicate_chars(char *pathstr, int start, int stop)
 	return (buf);
 }
 /**
- * find_path - Finds the specified command in the PATH string.
+ * find_paths - Finds the specified command in the PATH string.
  * @info: Pointer to the info struct.
  * @pathstr: The PATH string containing directories separated by ':'.
  * @cmd: The command to find.
