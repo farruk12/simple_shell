@@ -7,12 +7,12 @@
  */
 int n_myexit(memb_t *member)
 {
-	int n_exitcheck;
+	int exitchecked;
 
 	if (member->argv[1])
 	{
-		n_exitcheck = n_erratoi(member->argv[1]);
-		if (n_exitcheck == -1)
+		exitchecked = n_erratoi(member->argv[1]);
+		if (exitchecked == -1)
 		{
 			member->status = 2;
 			n_print_error(member, "Wrong number: ");
@@ -35,11 +35,11 @@ int n_myexit(memb_t *member)
  */
 int n_mycd(memb_t *member)
 {
-	char *v, *dir, buffer[1024];
+	char *t, *dir, buffer[1024];
 	int chdir_ret;
 
-	v = getcwd(buffer, 1024);
-	if (!v)
+	t = getcwd(buffer, 1024);
+	if (!t)
 		n_puts("ERROR: getcwd failed\n");
 	if (!member->argv[1])
 	{
@@ -53,7 +53,7 @@ int n_mycd(memb_t *member)
 	{
 		if (!n_getenv(member, "OLDPWD="))
 		{
-			n_puts(v);
+			n_puts(t);
 			n_putchar('\n');
 			return (1);
 		}
